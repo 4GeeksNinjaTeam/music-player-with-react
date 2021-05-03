@@ -11,3 +11,40 @@
     import 'relative/path/to/stylesheet.scss';
 
 */
+body {
+	margin: 4px 32px;
+	background-color: skyblue;
+}
+h2 {text-align: center;}
+/*******************************/
+.subGrid {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-gap: 4px;
+}
+@media only screen and (min-width: 620px){
+  .subGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 16px;
+  }
+}
+/****************************/
+section {margin: 32px 0;}
+section:nth-child(odd) {background: skyblue;}
+section:nth-child(even) {background: pink;}
+/* <Video> DIV ========================= */
+.wrapper {
+  max-width: 90%;
+  margin: 10px auto;
+  padding: 10px 20px;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+video, audio, iframe {
+  margin: 0 auto;
+  display: block;
+  width: 100%;  /* ADD 'Responsiveness' */
+}
+/****************************/
