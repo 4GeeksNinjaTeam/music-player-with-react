@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { SoundList } from "./component/soundlist.jsx";
 import { Player } from "./component/player.jsx";
-//import { Player } from "./component/player.jsx"
 
 const App = () => {
 	const [soundList, setSoundList] = useState({
@@ -36,8 +35,10 @@ const App = () => {
 			<div className="page-header">
 				<h1 className="text-center">Music Player With React</h1>
 			</div>
-			<SoundList data={soundList.Songs} playSound={playSound} />
-			<Player song={currentSong} />
+			<div className="wrapper">
+				<SoundList data={soundList.Songs} playSound={playSound} />
+				<Player song={currentSong} />
+			</div>
 		</div>
 	);
 };
