@@ -1,22 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 export const Player = props => {
+	const inputRef = useRef();
 	return (
 		<>
 			<audio
-				ref={props.inputRef}
+				ref={inputRef}
 				src={props.song}
 				autoPlay
 				controls
-				preload>
-				<source src="https://cldup.com/qR72ozoaiQ.mp3"></source>
-			</audio>
+				preload></audio>
 		</>
 	);
 };
 
 Player.propTypes = {
-	song: PropTypes.string,
-	inputRef: PropTypes.object
+	song: PropTypes.string
 };

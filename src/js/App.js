@@ -1,51 +1,26 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { SoundList } from "./component/soundlist.jsx";
 import { Player } from "./component/player.jsx";
-
+import axios from "axios";
 const App = () => {
 	const [currentSong, setCurrentSong] = useState("");
-	const inputRef = useRef();
-	//const [soundList, setSoundList] = useState({ hits: [] });
-	/*const getSongs = async () => {
-		try {
-			const response = await fetch(
-				"https://assets.breatheco.de/apis/sound/songs"
-			);
-			const songs = await response.json();
-			return songs;
-		} catch (e) {
-			//console.log(e);
-		}
-	};
+	const [soundList, setSoundList] = useState({ Songs: [] });
+	const [JSONUrl, setJSONUrl] = useState(
+		"https://assets.breatheco.de/apis/sound/data/songs.json"
+	);
+	useEffect(() => {
+		const fetchData = async () => {
+			const response = await axios(JSONUrl);
+			//const result = await response.json();
+			setSoundList(response);
+			//setData(result);
+		};
 
-	console.log(getSongs());
-	//console.log("Aqui va la salida" + JSON.stringify(soundList));*/
-	const [soundList, setSoundList] = useState({
-		Songs: [
-			{
-				id: 1,
-				category: "80's electronic",
-				name: "Stranger Things",
-				url:
-					"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
-			},
-			{
-				id: 2,
-				category: "game",
-				name: "Mario Star",
-				url: "https://cldup.com/qR72ozoaiQ.mp3"
-			},
-			{
-				id: 3,
-				category: "game",
-				name: "Mario Overworld",
-				url: "http://hi5.1980s.fm/;"
-			}
-		]
-	});
+		fetchData();
+	}, [JSONUrl]);
+
 	const playSound = url => {
 		setCurrentSong(url);
-		inputRef.current.src = url;
 	};
 
 	return (
