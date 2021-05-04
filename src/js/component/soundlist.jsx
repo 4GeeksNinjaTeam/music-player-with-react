@@ -14,7 +14,7 @@ export const SoundList = props => {
 				</thead>
 				<tbody>
 					{props.data
-						? props.data.map((item, i) => (
+						? props.data.hits.map((item, i) => (
 								<tr
 									key={`${i}`}
 									onClick={() =>

@@ -5,7 +5,24 @@ import { Player } from "./component/player.jsx";
 const App = () => {
 	const [currentSong, setCurrentSong] = useState("");
 	const inputRef = useRef();
-	const [soundList, setSoundList] = useState({
+	const [soundList, setSoundList] = useState({ hits: [] });
+	const getSongs = async () => {
+		try {
+			const response = await fetch(
+				"https://assets.breatheco.de/apis/sound/songs"
+			);
+			const songs = await response.json();
+			return songs;
+		} catch (e) {
+			//console.log(e);
+		}
+	};
+
+	useEffect(() => {
+		setSoundList(getSongs);
+	}, [soundList]);
+	//console.log("Aqui va la salida" + JSON.stringify(soundList));
+	/*const [soundList, setSoundList] = useState({
 		Songs: [
 			{
 				id: 1,
@@ -27,7 +44,7 @@ const App = () => {
 				url: "http://hi5.1980s.fm/;"
 			}
 		]
-	});
+	});*/
 	const playSound = (url, i) => {
 		setCurrentSong(url);
 		inputRef.current.src = url;
@@ -40,7 +57,7 @@ const App = () => {
 			</div>
 			<div className="wrapper">
 				<SoundList
-					data={soundList.Songs}
+					data={soundList}
 					playSound={playSound}
 					inputRef={inputRef}
 				/>
