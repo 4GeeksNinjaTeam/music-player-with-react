@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SoundList } from "./component/soundlist.jsx";
 import { Player } from "./component/player.jsx";
 
 const App = () => {
 	const [currentSong, setCurrentSong] = useState("");
+	const inputRef = useRef();
 	const [soundList, setSoundList] = useState({
 		Songs: [
 			{
@@ -29,6 +30,7 @@ const App = () => {
 	});
 	const playSound = url => {
 		setCurrentSong(url);
+		inputRef.current.src = url;
 	};
 
 	return (
@@ -37,8 +39,12 @@ const App = () => {
 				<h1 className="text-center">Music Player With React</h1>
 			</div>
 			<div className="wrapper">
-				<SoundList data={soundList.Songs} playSound={playSound} />
-				<Player song={currentSong} />
+				<SoundList
+					data={soundList.Songs}
+					playSound={playSound}
+					inputRef={inputRef}
+				/>
+				<Player song={currentSong} inputRef={inputRef} />
 			</div>
 		</div>
 	);
