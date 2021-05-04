@@ -5,8 +5,8 @@ import { Player } from "./component/player.jsx";
 const App = () => {
 	const [currentSong, setCurrentSong] = useState("");
 	const inputRef = useRef();
-	const [soundList, setSoundList] = useState({ hits: [] });
-	const getSongs = async () => {
+	//const [soundList, setSoundList] = useState({ hits: [] });
+	/*const getSongs = async () => {
 		try {
 			const response = await fetch(
 				"https://assets.breatheco.de/apis/sound/songs"
@@ -18,11 +18,9 @@ const App = () => {
 		}
 	};
 
-	useEffect(() => {
-		setSoundList(getSongs);
-	}, [soundList]);
-	//console.log("Aqui va la salida" + JSON.stringify(soundList));
-	/*const [soundList, setSoundList] = useState({
+	console.log(getSongs());
+	//console.log("Aqui va la salida" + JSON.stringify(soundList));*/
+	const [soundList, setSoundList] = useState({
 		Songs: [
 			{
 				id: 1,
@@ -44,8 +42,8 @@ const App = () => {
 				url: "http://hi5.1980s.fm/;"
 			}
 		]
-	});*/
-	const playSound = (url, i) => {
+	});
+	const playSound = url => {
 		setCurrentSong(url);
 		inputRef.current.src = url;
 	};
@@ -56,12 +54,8 @@ const App = () => {
 				<h1 className="text-center">Music Player With React</h1>
 			</div>
 			<div className="wrapper">
-				<SoundList
-					data={soundList}
-					playSound={playSound}
-					inputRef={inputRef}
-				/>
-				<Player song={currentSong} inputRef={inputRef} />
+				<SoundList data={soundList.Songs} playSound={playSound} />
+				<Player song={currentSong} />
 			</div>
 		</div>
 	);

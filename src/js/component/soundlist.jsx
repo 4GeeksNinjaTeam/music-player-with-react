@@ -14,12 +14,10 @@ export const SoundList = props => {
 				</thead>
 				<tbody>
 					{props.data
-						? props.data.hits.map((item, i) => (
+						? props.data.map((item, i) => (
 								<tr
 									key={`${i}`}
-									onClick={() =>
-										props.playSound(item.url, i)
-									}>
+									onClick={() => props.playSound(item.url)}>
 									<th scope="row">{item.id}</th>
 									<td>{item.category}</td>
 									<td>{item.name}</td>
