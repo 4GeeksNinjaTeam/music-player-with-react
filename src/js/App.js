@@ -28,7 +28,7 @@ const App = () => {
 			}
 		]
 	});
-	const playSound = url => {
+	const playSound = (url, i) => {
 		setCurrentSong(url);
 		inputRef.current.src = url;
 	};
