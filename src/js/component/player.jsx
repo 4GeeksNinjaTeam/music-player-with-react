@@ -2,16 +2,19 @@ import React, { useRef } from "react";
 import PropTypes from "prop-types";
 
 export const Player = props => {
-	const audiofile = useRef();
-	if (props.song) {
-		audiofile.current.src = props.song;
-		audiofile.play;
-	}
+	const inputRef = useRef();
+
+	const handlePlay = () => {
+		if (props.song) {
+			return inputRef.current.play();
+		}
+	};
+
 	return (
 		<>
-			<audio controls="controls" preload="auto" autobuffer="true">
-				<source ref={audiofile} src="" type="audio/mp3" />
-			</audio>
+			<audio ref={inputRef} src={props.song} />
+			<button onClick={() => handlePlay()}>Play</button>
+			<button onClick={() => inputRef.current.pause()}>Pause</button>
 		</>
 	);
 };

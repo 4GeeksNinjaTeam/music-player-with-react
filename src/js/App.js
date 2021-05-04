@@ -17,13 +17,13 @@ const App = () => {
 				id: 2,
 				category: "game",
 				name: "Mario Star",
-				url: "files/mario/songs/hurry-starman.mp3"
+				url: "https://cldup.com/qR72ozoaiQ.mp3"
 			},
 			{
 				id: 3,
 				category: "game",
 				name: "Mario Overworld",
-				url: "files/mario/songs/overworld.mp3"
+				url: "http://hi5.1980s.fm/;"
 			}
 		]
 	});
