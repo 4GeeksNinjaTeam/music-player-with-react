@@ -3,13 +3,15 @@ import { SoundList } from "./component/soundlist.jsx";
 import { Player } from "./component/player.jsx";
 
 const App = () => {
+	const [currentSong, setCurrentSong] = useState("");
 	const [soundList, setSoundList] = useState({
 		Songs: [
 			{
 				id: 1,
-				category: "game",
-				name: "Mario Castle",
-				url: "files/mario/songs/castle.mp3"
+				category: "80's electronic",
+				name: "Stranger Things",
+				url:
+					"https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
 			},
 			{
 				id: 2,
@@ -29,7 +31,6 @@ const App = () => {
 		setCurrentSong(url);
 	};
 
-	const [currentSong, setCurrentSong] = useState("");
 	return (
 		<div className="container">
 			<div className="page-header">
