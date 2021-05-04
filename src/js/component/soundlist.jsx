@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const SoundList = props => {
 	return (
 		<div className="row mt-3 mb-3">
-			<table className="table table-striped table-hover table-dark">
+			<table className="table table-striped table-hover table-dark sortable">
 				<thead>
 					<tr>
 						<th scope="col">#</th>

@@ -48,3 +48,54 @@ video, audio, iframe {
   width: 100%;  /* ADD 'Responsiveness' */
 }
 /****************************/
+.play-button {
+    height: 40px;
+    width: 65px;    
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    position: relative;
+}
+
+.play-button:hover {
+    background-color: rgba(0, 173, 239, 0.9);
+}
+
+.play-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10.5px;
+    left: 24px;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 9.5px 0 9.5px 17px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+}
+
+.pause-button {
+    height: 40px;
+    width: 65px;    
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    position: relative;
+}
+
+.pause-button:hover {
+    background-color: rgba(0, 173, 239, 0.9);
+}
+
+.pause-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10.5px;
+    left: 24px;
+    margin: 0 auto;
+    border-style: double;
+    border-width: 0px 0 0px 60px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+}
+
+.sortable tr {
+    cursor: pointer;
+}

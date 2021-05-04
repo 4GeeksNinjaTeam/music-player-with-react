@@ -13,8 +13,12 @@ export const Player = props => {
 	return (
 		<>
 			<audio ref={inputRef} src={props.song} />
-			<button onClick={() => handlePlay()}>Play</button>
-			<button onClick={() => inputRef.current.pause()}>Pause</button>
+			<button
+				onClick={() => handlePlay()}
+				className="play-button"></button>
+			<button
+				onClick={() => inputRef.current.pause()}
+				className="pause-button"></button>
 		</>
 	);
 };
