@@ -16,13 +16,23 @@ export const Player = props => {
 			return inputRef.current.play();
 		}
 	};
+	/*const After = () => {
+		let cancionActul = playSound();
+		console.log(cancionActul);
+	};*/
 
 	return (
 		<>
 			<audio ref={inputRef} src={props.song} autoPlay />
+			<div>
+				<i id="anterior" className="fas fa-play"></i>
+			</div>
 			<button
 				onClick={togglePlay}
 				className={`${play_pause}-button`}></button>
+			<div>
+				<i className="fas fa-play"></i>
+			</div>
 		</>
 	);
 };

@@ -17,7 +17,9 @@ export const SoundList = props => {
 						? props.data.map((item, i) => (
 								<tr
 									key={`${i}`}
-									onClick={() => props.playSound(item.url)}>
+									onClick={() =>
+										props.playSound(item.url, i)
+									}>
 									<th scope="row">{item.id}</th>
 									<td>{item.category}</td>
 									<td>{item.name}</td>

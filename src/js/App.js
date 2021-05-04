@@ -4,6 +4,7 @@ import { Player } from "./component/player.jsx";
 
 const App = () => {
 	const [currentSong, setCurrentSong] = useState("");
+	const [currentIndex, setCurrentIndex] = useState();
 	const [soundList, setSoundList] = useState({
 		Songs: [
 			{
@@ -27,8 +28,9 @@ const App = () => {
 			}
 		]
 	});
-	const playSound = url => {
+	const playSound = (url, i) => {
 		setCurrentSong(url);
+		setCurrentIndex(i);
 	};
 
 	return (
@@ -38,7 +40,7 @@ const App = () => {
 			</div>
 			<div className="wrapper">
 				<SoundList data={soundList.Songs} playSound={playSound} />
-				<Player song={currentSong} />
+				<Player song={currentSong} indice={currentIndex} />
 			</div>
 		</div>
 	);
