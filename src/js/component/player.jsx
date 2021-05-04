@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 export const Player = props => {
 	const inputRef = useRef();
-
+	//const isClickedOnTable = props.song ? () => handlePlay() : false;
 	const handlePlay = () => {
 		if (props.song) {
 			return inputRef.current.play();
