@@ -17,23 +17,7 @@ body {
 }
 h2 {text-align: center;}
 /*******************************/
-.subGrid {
-  display: grid;
-  grid-auto-rows: 1fr;
-  grid-gap: 4px;
-}
-@media only screen and (min-width: 620px){
-  .subGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 16px;
-  }
-}
-/****************************/
-section {margin: 32px 0;}
-section:nth-child(odd) {background: skyblue;}
-section:nth-child(even) {background: pink;}
-/* <Video> DIV ========================= */
+
 .wrapper {
   max-width: 90%;
   margin: 10px auto;
@@ -78,6 +62,7 @@ video, audio, iframe {
     background-color: rgba(0, 0, 0, 0.7);
     border-radius: 5px;
     position: relative;
+    color: transparent;
 }
 
 .pause-button:hover {
@@ -85,14 +70,14 @@ video, audio, iframe {
 }
 
 .pause-button:after {
-    content: "";
+    content: "❙❙";
     display: block;
     position: absolute;
-    top: 10.5px;
-    left: 24px;
+    top: 5.5px;
+    left: 20px;
     margin: 0 auto;
     border-style: double;
-    border-width: 0px 0 0px 60px;
+    border-width: 0px 0px 0px 20px;
     border-color: transparent transparent transparent rgba(255, 255, 255, 1);
 }
 
