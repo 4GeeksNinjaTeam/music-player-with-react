@@ -21,7 +21,7 @@ export const SoundList = props => {
 									<th scope="row">{item.id}</th>
 									<td>{item.category}</td>
 									<td>{item.name}</td>
-									<td>{item.url}</td>
+									<td>{props.songURL + item.url}</td>
 								</tr>
 						  ))
 						: "Cargando..."}
@@ -33,5 +33,6 @@ export const SoundList = props => {
 
 SoundList.propTypes = {
 	data: PropTypes.array,
-	playSound: PropTypes.func
+	playSound: PropTypes.func,
+	songURL: PropTypes.string
 };

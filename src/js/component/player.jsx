@@ -7,7 +7,7 @@ export const Player = props => {
 		<>
 			<audio
 				ref={inputRef}
-				src={props.song}
+				src={props.songURL + props.song}
 				autoPlay
 				controls
 				preload></audio>
@@ -16,5 +16,6 @@ export const Player = props => {
 };
 
 Player.propTypes = {
-	song: PropTypes.string
+	song: PropTypes.string,
+	songURL: PropTypes.string
 };
