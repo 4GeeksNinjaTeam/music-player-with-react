@@ -30,7 +30,6 @@ export const SoundList = props => {
 		</div>
 	);
 };
-
 SoundList.propTypes = {
 	data: PropTypes.array,
 	playSound: PropTypes.func,

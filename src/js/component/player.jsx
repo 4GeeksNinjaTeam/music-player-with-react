@@ -14,7 +14,6 @@ export const Player = props => {
 		</>
 	);
 };
-
 Player.propTypes = {
 	song: PropTypes.string,
 	songURL: PropTypes.string
