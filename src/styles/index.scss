@@ -103,3 +103,75 @@ top: 365px;
 left: 135px; 
 transform: rotate(180deg);
 }
+.prev-button {
+    height: 40px;
+    width: 65px;    
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    position: relative;
+}
+
+.prev-button:hover {
+    background-color: rgba(0, 173, 239, 0.9);
+}
+
+.prev-button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10.5px;
+    left: 13px;
+    margin: 0 auto;
+    border-style: solid;
+    border-width:  9.5px 17px 9.5px 0; //top derecha abajo izquierda //top y abajo iguales
+    border-color: transparent rgba(255, 255, 255, 1) transparent transparent;
+}
+.prev-button:after {    
+    content: "d";
+    display: block;
+    position: absolute;
+    top: 10.5px;
+    left: 34px;
+    bottom: 7.5px;
+    margin: 0 auto;
+    border-style: solid;
+    color: transparent;
+    border-width: 0px 0px 0px 5px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+}
+
+.next-button {
+    height: 40px;
+    width: 65px;    
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    position: relative;
+}
+
+.next-button:hover {
+    background-color: rgba(0, 173, 239, 0.9);
+}
+.next-button::before {
+    content: "d";
+    display: block;
+    position: absolute;
+    top: 10.5px;
+    left: 22px;
+    bottom: 7.5px;
+    margin: 0 auto;
+    border-style: solid;
+    color: transparent;
+    border-width: 0px 0px 0px 5px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+}
+.next-button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 10.5px;
+    left: 31px;
+    margin: 0 auto;
+    border-style: solid;
+    border-width: 9.5px 0 9.5px 17px;
+    border-color: transparent transparent transparent rgba(255, 255, 255, 1);
+}

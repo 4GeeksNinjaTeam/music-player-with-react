@@ -34,5 +34,6 @@ export const SoundList = props => {
 SoundList.propTypes = {
 	data: PropTypes.array,
 	playSound: PropTypes.func,
-	songURL: PropTypes.string
+	songURL: PropTypes.string,
+	setPlayList: PropTypes.func
 };

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { SoundList } from "./component/soundlist.jsx";
 import { Player } from "./component/player.jsx";
+import { Controls } from "./component/controls.jsx";
 
 const App = () => {
 	const songURL = "https://assets.breatheco.de/apis/sound/";
 	const [currentSong, setCurrentSong] = useState("");
 	const [soundList, setSoundList] = useState();
+	const [currentSongIndex, setCurrentSongIndex] = useState(0);
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -18,17 +20,39 @@ const App = () => {
 		};
 		fetchData();
 	}, []);
+	const searchPrevSong = () => {
+		for (let i = 0; i < soundList.length; i++) {
+			if (currentSong === soundList[i].url && i - 1 >= 0) {
+				return soundList[i - 1].url;
+			}
+		}
+	};
 
+	const searchNextSong = () => {
+		for (let i = 0; i < soundList.length; i++) {
+			if (currentSong === soundList[i].url && i + 1 <= soundList.length) {
+				return soundList[i + 1].url;
+			}
+		}
+	};
 	const playSound = url => {
 		setCurrentSong(url);
 	};
-
+	const playNext = () => {
+		const nextSong = searchNextSong();
+		playSound(nextSong);
+	};
+	const playPrev = () => {
+		const prevSong = searchPrevSong();
+		playSound(prevSong);
+	};
 	return (
 		<div className="container">
 			<div className="page-header">
 				<h1 className="text-center">Music Player With React</h1>
 			</div>
 			<div className="wrapper">
+				<Controls playPrev={playPrev} playNext={playNext} />
 				<SoundList
 					data={soundList}
 					playSound={playSound}
