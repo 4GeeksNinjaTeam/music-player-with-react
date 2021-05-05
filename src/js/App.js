@@ -9,8 +9,8 @@ const App = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				let response = await fetch(songURL + "songs");
-				let responseJson = await response.json();
+				const response = await fetch(songURL + "songs");
+				const responseJson = await response.json();
 				setSoundList(responseJson);
 			} catch (e) {
 				//console.error(e);
