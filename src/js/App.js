@@ -7,7 +7,7 @@ const App = () => {
 	const songURL = "https://assets.breatheco.de/apis/sound/";
 	const [currentSong, setCurrentSong] = useState("");
 	const [soundList, setSoundList] = useState();
-
+	const [currentIndexSong, setCurrentIndexSong] = useState();
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -37,17 +37,18 @@ const App = () => {
 	};
 	const playSound = (url, id) => {
 		setCurrentSong(url);
+		setCurrentIndexSong(id);
 		var del = document.querySelectorAll(".fa").forEach(e => e.remove());
-		const el = document.querySelector("#" + id);
+		const el = document.querySelector("#idRef" + id);
 		el.innerHTML = '<i class="fa fa-music"></i>';
 	};
 	const playNext = () => {
 		const nextSong = searchNextSong();
-		playSound(nextSong);
+		playSound(nextSong, currentIndexSong + 1);
 	};
 	const playPrev = () => {
 		const prevSong = searchPrevSong();
-		playSound(prevSong);
+		playSound(prevSong, currentIndexSong - 1);
 	};
 	return (
 		<div className="container">
