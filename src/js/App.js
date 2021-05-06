@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SoundList } from "./component/soundlist.jsx";
 import { Player } from "./component/player.jsx";
 import { Controls } from "./component/controls.jsx";
@@ -7,7 +7,7 @@ const App = () => {
 	const songURL = "https://assets.breatheco.de/apis/sound/";
 	const [currentSong, setCurrentSong] = useState("");
 	const [soundList, setSoundList] = useState();
-	const [currentSongIndex, setCurrentSongIndex] = useState(0);
+
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
@@ -35,8 +35,11 @@ const App = () => {
 			}
 		}
 	};
-	const playSound = url => {
+	const playSound = (url, id) => {
 		setCurrentSong(url);
+		var del = document.querySelectorAll(".fa").forEach(e => e.remove());
+		const el = document.querySelector("#" + id);
+		el.innerHTML = '<i class="fa fa-music"></i>';
 	};
 	const playNext = () => {
 		const nextSong = searchNextSong();

@@ -17,11 +17,14 @@ export const SoundList = props => {
 						? props.data.map((item, i) => (
 								<tr
 									key={`${i}`}
-									onClick={() => props.playSound(item.url)}>
+									onClick={() =>
+										props.playSound(item.url, "idRef" + i)
+									}>
 									<th scope="row">{item.id}</th>
 									<td>{item.category}</td>
 									<td>{item.name}</td>
 									<td>{props.songURL + item.url}</td>
+									<td id={`idRef${i}`}></td>
 								</tr>
 						  ))
 						: "Cargando..."}
@@ -34,6 +37,5 @@ export const SoundList = props => {
 SoundList.propTypes = {
 	data: PropTypes.array,
 	playSound: PropTypes.func,
-	songURL: PropTypes.string,
-	setPlayList: PropTypes.func
+	songURL: PropTypes.string
 };
